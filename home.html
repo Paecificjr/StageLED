@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+<section class="w3-container w3-center" style="max-width:600px">
+    <h2 class="w3-wide">LED Control Panel</h2>
+    <p class="w3-opacity"><i>Press buttons to change LED color</i></p>
+</section>
+
+<style>
+    .button {
+        background-color: #A9A9A9;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button:hover {
+        background-color: #707070;
+    }
+
+    .btn-group button {
+        background-color: #A9A9A9;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-left: 15px;
+        display: block;
+    }
+
+    .btn-group button:hover {
+        background-color: #707070;
+    }
+</style>
+
+<body>
+    <div class="btn-group">
+        <button onclick="redOnClick(50)">Red</button>
+        <button>Green (2s)</button>
+        <button>Off</button> 
+    </div>
+
+</body>
+<script> 
+function redOnClick(seconds) {
+    console.log('red was clicked with', seconds);
+    var spawn = require('child_process').spawn;
+    var response = spawn('./ControlLights.py');
+    response.stdout.on('data', function(data){
+        console.log(data);
+    });
+}
+
+</script>
+</html>
