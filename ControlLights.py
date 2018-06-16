@@ -1,6 +1,7 @@
 #/usr/bin/env Python
 
 import time
+import sys
 from neopixel import *
 
 class Lights():
@@ -51,3 +52,23 @@ class Lights():
 
         self.STATUS = "GREEN (%d seconds)" % time
 
+
+def main(argv):
+    userInput = ""
+
+    lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=18)
+
+    while userInput not in 'q':
+        userInput = raw_input("Please enter a color: ")
+
+        if userInput in "green":
+            lead.setGreen()
+
+        elif userInput in "red":
+            lead.setRed()
+        
+        else:
+            print("Input not accepted")
+        
+if __name__ == "__main__":
+    main(sys.argv)
