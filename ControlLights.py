@@ -2,6 +2,7 @@
 
 import time
 import sys
+sys.path.insert(0, "/home/pi/git_repos/neopixels/rpi_ws281x/python"
 from neopixel import *
 
 class Lights():
