@@ -32,7 +32,7 @@ class Lights():
         self.STATUS = "RED (INDEFINITE)"
 
 
-    def setGreen(self, time=2):
+    def setGreen(self, wait=2):
         """Sets the leds to green for a set time
 
         Keyword arguments:
@@ -42,7 +42,7 @@ class Lights():
 
         self.neopixel.fill(color)
 
-        time.sleep(time)
+        time.sleep(wait)
 
         self.STATUS = "GREEN (%d seconds)" % time
 
