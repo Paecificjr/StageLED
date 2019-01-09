@@ -2,6 +2,7 @@
 
 import time
 import sys
+import board
 import neopixel
 
 class Lights():
@@ -14,7 +15,7 @@ class Lights():
         self.NAME = NAME  # Holds the name of the light for multiple light support
         self.STATUS = ""  # Holds the status of the led for reporting
         BRIGHTNESS = 0.2
-        self.neopixel = neopixel.NeoPixel(LED_PIN, LED_COUNT, pixel_order=neopixel.RGBW)  # This is the neopixel object that I am expanding on
+        self.neopixel = neopixel.NeoPixel(LED_PIN, LED_COUNT)  # This is the neopixel object that I am expanding on
           
     def getStatus(self):
         return self.STATUS
@@ -24,12 +25,9 @@ class Lights():
 
         Keyword arguments:
         """
-        color = Color(255, 0, 0)
+        color = (255, 0, 0)
 
-        for i in range(self.neopixel.getPixels()):
-            self.neopixel.setPixelColor(i, color)
-
-        self.neopixel.show()
+        self.neopixel.fill(color)
 
         self.STATUS = "RED (INDEFINITE)"
 
@@ -40,12 +38,9 @@ class Lights():
         Keyword arguments:
         time -- the time (in seconds) you want it to remain green (default 2.0)
         """
-        color = Color(0, 255, 0)
+        color = (0, 255, 0)
 
-        for i in range(self.neopixel.getPixels()):
-            self.neopixel.setPixelColor(i, color)
-
-        self.neopixel.show()
+        self.neopixel.fill(color)
 
         time.sleep(time)
 
@@ -55,7 +50,7 @@ class Lights():
 def main(argv):
     userInput = ""
 
-    lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=18)
+    lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=board.D18)
 
     while userInput not in 'q':
         userInput = raw_input("Please enter a color: ")
