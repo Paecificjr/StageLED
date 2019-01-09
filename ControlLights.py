@@ -2,8 +2,7 @@
 
 import time
 import sys
-sys.path.insert(0, "/home/pi/git_repos/neopixels/rpi_ws281x/python"
-from neopixel import *
+import neopixels
 
 class Lights():
 
@@ -15,7 +14,7 @@ class Lights():
         self.NAME = NAME  # Holds the name of the light for multiple light support
         self.STATUS = ""  # Holds the status of the led for reporting
 
-        self.neopixel = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)  # This is the neopixel object that I am expanding on
+        self.neopixel = neopixel.NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)  # This is the neopixel object that I am expanding on
         self.neopixel.begin()
           
     def getStatus(self):
