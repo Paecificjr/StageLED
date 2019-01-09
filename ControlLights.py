@@ -46,7 +46,7 @@ class Lights():
 
         self.neopixel.fill((0,0,0))  # Turn off
 
-        self.STATUS = "GREEN (%d seconds)" % time
+        self.STATUS = "GREEN (%d seconds)" % wait
 
 
 def main(argv):
