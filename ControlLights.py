@@ -25,7 +25,7 @@ class Lights():
 
         Keyword arguments:
         """
-        color = (255, 0, 0)
+        color = (255, 0, 0, 0)
 
         self.neopixel.fill(color)
 
@@ -38,19 +38,19 @@ class Lights():
         Keyword arguments:
         time -- the time (in seconds) you want it to remain green (default 2.0)
         """
-        color = (0, 255, 0)
+        color = (0, 255, 0, 0)
 
         self.neopixel.fill(color)
 
         time.sleep(wait)
 
-        self.neopixel.fill((0,0,0))  # Turn off
+        self.neopixel.fill((0,0,0, 0))  # Turn off
 
         self.STATUS = "GREEN (%d seconds)" % wait
 
 
 def main(argv):
-    userInput = input("Please enter a color: ")
+    userInput = "notQ"
 
     lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=board.D18)
 
@@ -63,6 +63,9 @@ def main(argv):
         elif userInput in "red":
             lead.setRed()
         
+        elif userInput in "q":
+            break
+
         else:
             print("Input not accepted")
         
