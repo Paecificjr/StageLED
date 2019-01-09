@@ -1,4 +1,4 @@
-#/usr/bin/env Python
+#/usr/bin/python3
 
 import time
 import sys
