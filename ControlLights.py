@@ -2,7 +2,7 @@
 
 import time
 import sys
-import neopixels
+import neopixel
 
 class Lights():
 
