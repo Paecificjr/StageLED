@@ -53,7 +53,7 @@ def main(argv):
     lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=board.D18)
 
     while userInput not in 'q':
-        userInput = raw_input("Please enter a color: ")
+        userInput = input("Please enter a color: ")
 
         if userInput in "green":
             lead.setGreen()
