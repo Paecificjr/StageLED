@@ -48,7 +48,7 @@ class Lights():
 
 
 def main(argv):
-    userInput = ""
+    userInput = input("Please enter a color: ")
 
     lead = Lights(NAME="Lead", LED_COUNT=7, LED_PIN=board.D18)
 
