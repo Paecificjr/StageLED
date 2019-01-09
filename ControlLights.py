@@ -13,9 +13,8 @@ class Lights():
     def __init__(self, NAME, LED_COUNT, LED_PIN, LED_FREQ_HZ=800000, LED_DMA=5, LED_INVERT=False):
         self.NAME = NAME  # Holds the name of the light for multiple light support
         self.STATUS = ""  # Holds the status of the led for reporting
-
-        self.neopixel = neopixel.NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)  # This is the neopixel object that I am expanding on
-        self.neopixel.begin()
+        BRIGHTNESS = 0.2
+        self.neopixel = neopixel.NeoPixel(LED_PIN, LED_COUNT, BRIGHTNESS, pixel_order=neopixel.RGBW)  # This is the neopixel object that I am expanding on
           
     def getStatus(self):
         return self.STATUS
